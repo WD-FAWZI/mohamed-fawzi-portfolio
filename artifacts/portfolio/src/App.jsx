@@ -1,6 +1,6 @@
 import { Suspense, lazy, Component, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Brain, Mic, Code2, Cpu, Globe } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code2, Cpu, Globe, Download, Youtube } from "lucide-react";
 
 const HeroScene = lazy(() => import("./components/HeroScene"));
 
@@ -55,53 +55,6 @@ function Typewriter() {
   );
 }
 
-const featuredProjects = [
-  {
-    id: "etmenan",
-    icon: <Brain size={28} className="text-[#00ffcc]" />,
-    label: "AI Health-tech",
-    title: "Etme'nan",
-    subtitle: "AI Health-tech & Glucose Monitoring Platform",
-    desc: "A comprehensive AI-driven health platform focused on real-time glucose monitoring, predictive analytics, and personalized care recommendations. Integrates continuous sensor data with machine-learning models to surface actionable health insights and reduce clinical overhead.",
-    tags: ["Python", "TensorFlow", "React Native", "HealthKit", "FastAPI"],
-    accentColor: "#00ffcc",
-    glowColor: "rgba(0,255,204,0.15)",
-  },
-  {
-    id: "him",
-    icon: <Mic size={28} className="text-[#7b61ff]" />,
-    label: "Conversational AI",
-    title: "H.I.M",
-    subtitle: "Regional Dialect Voice-Interactive AI Agent",
-    desc: "A voice-first AI agent trained on regional Arabic dialects, enabling natural spoken interactions for underserved linguistic communities. Combines a fine-tuned LLM with custom ASR/TTS pipelines to deliver human-like conversations with deep cultural and dialectal nuance.",
-    tags: ["PyTorch", "Whisper", "LangChain", "Arabic NLP", "WebRTC"],
-    accentColor: "#7b61ff",
-    glowColor: "rgba(123,97,255,0.15)",
-  },
-];
-
-const otherProjects = [
-  {
-    title: "Neural Interface",
-    desc: "AI-powered brain-computer interface simulation using real-time signal processing.",
-    tags: ["Python", "TensorFlow", "WebGL"],
-  },
-  {
-    title: "Quantum Mesh",
-    desc: "Distributed system for quantum error correction with interactive 3D node graphs.",
-    tags: ["Rust", "Three.js", "WASM"],
-  },
-  {
-    title: "AutoGen Studio",
-    desc: "Multi-agent automation framework powered by LLMs for workflow orchestration.",
-    tags: ["TypeScript", "LangChain", "React"],
-  },
-  {
-    title: "Void Protocol",
-    desc: "Zero-knowledge authentication with cryptographic proof generation and verification.",
-    tags: ["Solidity", "ZK-SNARKs", "Next.js"],
-  },
-];
 
 const skills = [
   { icon: <Code2 size={20} />, label: "Frontend", items: ["React", "Next.js", "Three.js", "Framer Motion"] },
@@ -169,11 +122,15 @@ function HeroSection() {
             <Typewriter />
           </p>
 
+          <div className="mt-8 flex justify-center pointer-events-auto">
+            <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-8 py-3 rounded-full bg-cyan-500/10 border border-cyan-400/50 text-cyan-300 font-mono hover:bg-cyan-400/20 hover:shadow-[0_0_20px_rgba(0,255,204,0.4)] transition-all uppercase tracking-widest opacity-50 cursor-not-allowed"><Download size={18} /> Download Résumé</a>
+          </div>
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.4, duration: 0.6 }}
-            className="mt-10 flex items-center justify-center gap-4 pointer-events-auto"
+            className="mt-6 flex items-center justify-center gap-4 pointer-events-auto"
           >
             <a
               href="#projects"
@@ -203,134 +160,101 @@ function HeroSection() {
   );
 }
 
+const projectCards = [
+  {
+    title: "Etme'nan",
+    desc: "AI Health-tech & Diabetes Monitoring Platform.",
+    buttons: [
+      { label: "Live Demo", icon: <ExternalLink size={15} />, href: "https://itminan.vercel.app" },
+      { label: "Source", icon: <Github size={15} />, href: "#" },
+    ],
+  },
+  {
+    title: "H.I.M",
+    desc: "The First Sudanese Regional Dialect Voice-Interactive AI Agent.",
+    buttons: [
+      { label: "Live Agent", icon: <ExternalLink size={15} />, href: "https://the-first-sudanese-ai-voice-agent.vercel.app" },
+      { label: "Demo", icon: <Youtube size={15} />, href: "https://youtube.com/shorts/MZHNml5zLJY?si=IBndVxtR1JmiUBNq" },
+    ],
+  },
+  {
+    title: "ER Zero Latency",
+    desc: "Mistral AI Hackathon - Computer Vision for Hospital Triage.",
+    buttons: [
+      { label: "Demo", icon: <Youtube size={15} />, href: "https://youtu.be/gyr2oWzzMWU?si=IBETu429eibqfwZd" },
+      { label: "Source", icon: <Github size={15} />, href: "https://github.com/WD-FAWZI/ER-Zero-Latency" },
+    ],
+  },
+  {
+    title: "Medxam AI",
+    desc: "AI Assistant for Student & Teacher Educational Question Generation.",
+    buttons: [
+      { label: "Live App", icon: <ExternalLink size={15} />, href: "https://medxam-ai.vercel.app/" },
+      { label: "Source", icon: <Github size={15} />, href: "#" },
+    ],
+  },
+];
+
 function FeaturedProjectsSection() {
   return (
-    <section id="projects" className="bg-[#050505] min-h-screen py-24 px-6 md:px-12">
-      <div className="max-w-5xl mx-auto">
+    <section id="projects" className="min-h-screen bg-[#050505] py-24 px-4 relative z-20">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-16 text-center"
         >
           <p className="text-[#00ffcc]/70 text-xs tracking-[0.4em] uppercase mb-3 font-mono">
             &lt; Featured Work /&gt;
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-            Featured Projects
+            Projects
           </h2>
-          <p className="mt-3 text-gray-500 text-sm max-w-lg">
-            Selected builds that push the intersection of AI, health-tech, and human-computer interaction.
-          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
-          {featuredProjects.map((project, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {projectCards.map((project, i) => (
             <motion.div
-              key={project.id}
+              key={project.title}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="group relative backdrop-blur-lg bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 cursor-pointer overflow-hidden"
-              style={{
-                boxShadow: `0 0 0 0 ${project.glowColor}`,
-              }}
-              whileHover={{
-                boxShadow: `0 8px 40px ${project.glowColor}, 0 0 0 1px ${project.accentColor}22`,
-              }}
+              transition={{ duration: 0.6, delay: i * 0.12 }}
+              className="backdrop-blur-lg bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors group relative overflow-hidden"
             >
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"
-                style={{
-                  background: `radial-gradient(circle at 50% 0%, ${project.glowColor} 0%, transparent 70%)`,
-                }}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"
+                style={{ background: "radial-gradient(circle at 50% 0%, rgba(0,255,204,0.07) 0%, transparent 70%)" }}
               />
-
               <div className="relative z-10">
-                <div className="flex items-start justify-between mb-5">
-                  <div>
-                    <span
-                      className="text-xs font-mono tracking-[0.3em] uppercase mb-2 block"
-                      style={{ color: project.accentColor }}
-                    >
-                      {project.label}
-                    </span>
-                    <div className="flex items-center gap-3">
-                      {project.icon}
-                      <h3 className="text-white font-bold text-2xl tracking-tight">{project.title}</h3>
-                    </div>
-                  </div>
-                  <ExternalLink
-                    size={16}
-                    className="mt-1 text-gray-600 group-hover:text-white transition-colors duration-200"
-                  />
+                <h3 className="text-white font-bold text-2xl tracking-tight mb-3">{project.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{project.desc}</p>
+                <div className="flex items-center gap-4 mt-6">
+                  {project.buttons.map((btn) => {
+                    const isDisabled = btn.href === "#";
+                    return isDisabled ? (
+                      <span
+                        key={btn.label}
+                        className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-gray-500 text-sm font-mono opacity-40 cursor-not-allowed select-none"
+                      >
+                        {btn.icon}
+                        {btn.label}
+                      </span>
+                    ) : (
+                      <a
+                        key={btn.label}
+                        href={btn.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-400/40 text-cyan-300 text-sm font-mono hover:bg-cyan-400/10 hover:border-cyan-400/70 hover:shadow-[0_0_14px_rgba(0,255,204,0.25)] transition-all"
+                      >
+                        {btn.icon}
+                        {btn.label}
+                      </a>
+                    );
+                  })}
                 </div>
-
-                <p
-                  className="text-xs font-mono mb-3"
-                  style={{ color: project.accentColor + "bb" }}
-                >
-                  {project.subtitle}
-                </p>
-
-                <p className="text-gray-400 text-sm leading-relaxed mb-6">{project.desc}</p>
-
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs px-3 py-1 rounded-full border font-mono"
-                      style={{
-                        color: project.accentColor,
-                        borderColor: project.accentColor + "33",
-                        background: project.accentColor + "0d",
-                      }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-10"
-        >
-          <p className="text-[#00ffcc]/70 text-xs tracking-[0.4em] uppercase mb-2 font-mono">
-            &lt; Other Work /&gt;
-          </p>
-          <h3 className="text-xl font-bold text-white/70">More Projects</h3>
-        </motion.div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {otherProjects.map((project, i) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="group p-5 rounded-xl border border-white/8 bg-white/[0.02] hover:bg-white/[0.05] hover:border-[#00ffcc]/20 transition-all duration-300 cursor-pointer"
-            >
-              <div className="flex items-start justify-between mb-3">
-                <h4 className="text-white font-semibold text-sm">{project.title}</h4>
-                <ExternalLink size={13} className="text-gray-700 group-hover:text-[#00ffcc]/60 transition-colors mt-0.5" />
-              </div>
-              <p className="text-gray-600 text-xs leading-relaxed mb-4">{project.desc}</p>
-              <div className="flex flex-wrap gap-1.5">
-                {project.tags.map((tag) => (
-                  <span key={tag} className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 border border-white/8 text-gray-500 font-mono">
-                    {tag}
-                  </span>
-                ))}
               </div>
             </motion.div>
           ))}

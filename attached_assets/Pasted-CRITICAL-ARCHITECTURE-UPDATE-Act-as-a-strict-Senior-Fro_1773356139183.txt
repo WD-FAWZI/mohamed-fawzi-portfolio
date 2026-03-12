@@ -1,0 +1,45 @@
+CRITICAL ARCHITECTURE UPDATE:
+Act as a strict Senior Frontend Engineer. We are finalizing the portfolio. Modify `app/page.jsx` to inject real data and build a premium Projects section.
+
+STRICT RULES (DO NOT IGNORE):
+- DO NOT remove or break the `<HeroScene />` component. All new content goes BELOW the Hero text overlay.
+- Use `lucide-react` for ALL icons. Import `{ Github, ExternalLink, Youtube, Download }`.
+- Use standard `<a>` tags for external links with `target="_blank" rel="noopener noreferrer"`.
+- If a link is "#", style it as a disabled/inactive button with reduced opacity and cursor-not-allowed.
+
+1. HERO CTA INJECTION:
+Directly below the Typewriter/Subtitle in the Hero overlay, add this exact Resume button:
+`<a href="#" target="_blank" className="mt-8 flex items-center gap-2 px-8 py-3 rounded-full bg-cyan-500/10 border border-cyan-400/50 text-cyan-300 font-mono hover:bg-cyan-400/20 hover:shadow-[0_0_20px_rgba(0,255,204,0.4)] transition-all uppercase tracking-widest"><Download size={18} /> Download Résumé</a>`
+
+2. PROJECTS SECTION (Below Hero):
+Add a new section `<section className="min-h-screen bg-[#050505] py-24 px-4 relative z-20">`.
+Inside it, create a max-width container with a grid: `<div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">`.
+
+3. DATA INJECTION (Create 4 Glassmorphism Cards):
+Card Style: `backdrop-blur-lg bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors group relative overflow-hidden`.
+
+Card 1: "Etme'nan"
+- Desc: AI Health-tech & Diabetes Monitoring Platform.
+- Buttons (Flex row, gap-4, mt-6): 
+  1. "Live Demo" (ExternalLink icon) -> href="https://itminan.vercel.app"
+  2. "Source" (Github icon) -> href="#"
+
+Card 2: "H.I.M"
+- Desc: The First Sudanese Regional Dialect Voice-Interactive AI Agent.
+- Buttons:
+  1. "Live Agent" (ExternalLink icon) -> href="https://the-first-sudanese-ai-voice-agent.vercel.app"
+  2. "Demo" (Youtube icon) -> href="https://youtube.com/shorts/MZHNml5zLJY?si=IBndVxtR1JmiUBNq"
+
+Card 3: "ER Zero Latency"
+- Desc: Mistral AI Hackathon - Computer Vision for Hospital Triage.
+- Buttons:
+  1. "Demo" (Youtube icon) -> href="https://youtu.be/gyr2oWzzMWU?si=IBETu429eibqfwZd"
+  2. "Source" (Github icon) -> href="https://github.com/WD-FAWZI/ER-Zero-Latency"
+
+Card 4: "Medxam AI"
+- Desc: AI Assistant for Student & Teacher Educational Question Generation.
+- Buttons:
+  1. "Live App" (ExternalLink icon) -> href="https://medxam-ai.vercel.app/"
+  2. "Source" (Github icon) -> href="#"
+
+Execute this flawlessly without breaking the 3D background.
