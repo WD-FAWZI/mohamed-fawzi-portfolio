@@ -114,7 +114,7 @@ function HeroSection() {
             &lt; Neural Portfolio /&gt;
           </p>
 
-          <h1 className="glitch text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tighter drop-shadow-[0_0_30px_rgba(0,255,204,0.3)]">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] bg-gradient-to-r from-cyan-400 via-purple-500 to-blue-500 bg-[length:200%_200%] animate-[gradient-xy_3s_ease-in-out_infinite] text-transparent bg-clip-text">
             Mohamed Fawzi
           </h1>
 
@@ -122,8 +122,9 @@ function HeroSection() {
             <Typewriter />
           </p>
 
-          <div className="mt-8 flex justify-center pointer-events-auto">
+          <div className="flex flex-wrap justify-center gap-4 mt-8 pointer-events-auto">
             <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-8 py-3 rounded-full bg-cyan-500/10 border border-cyan-400/50 text-cyan-300 font-mono hover:bg-cyan-400/20 hover:shadow-[0_0_20px_rgba(0,255,204,0.4)] transition-all uppercase tracking-widest opacity-50 cursor-not-allowed"><Download size={18} /> Download Résumé</a>
+            <a href="mailto:dr.mohamed.fawzi.y@gmail.com" className="flex items-center gap-2 px-8 py-3 rounded-full bg-purple-500/10 border border-purple-400/50 text-purple-300 font-mono hover:bg-purple-400/20 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all uppercase tracking-widest"><Mail size={18}/> Contact Me</a>
           </div>
 
           <motion.div
@@ -164,6 +165,7 @@ const projectCards = [
   {
     title: "Etme'nan",
     desc: "AI Health-tech & Diabetes Monitoring Platform.",
+    badge: { id: "dr.demo@itmenan.com", pw: "demo123" },
     buttons: [
       { label: "Live Demo", icon: <ExternalLink size={15} />, href: "https://itminan.vercel.app" },
       { label: "Source", icon: <Github size={15} />, href: "#" },
@@ -173,7 +175,6 @@ const projectCards = [
     title: "H.I.M",
     desc: "The First Sudanese Regional Dialect Voice-Interactive AI Agent.",
     buttons: [
-      { label: "Live Agent", icon: <ExternalLink size={15} />, href: "https://the-first-sudanese-ai-voice-agent.vercel.app" },
       { label: "Demo", icon: <Youtube size={15} />, href: "https://youtube.com/shorts/MZHNml5zLJY?si=IBndVxtR1JmiUBNq" },
     ],
   },
@@ -230,6 +231,13 @@ function FeaturedProjectsSection() {
               <div className="relative z-10">
                 <h3 className="text-white font-bold text-2xl tracking-tight mb-3">{project.title}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">{project.desc}</p>
+                {project.badge && (
+                  <div className="flex flex-col gap-1 mb-6 mt-5 p-3 bg-white/5 border border-cyan-500/30 rounded-lg text-xs font-mono text-cyan-100">
+                    <span className="text-cyan-500 uppercase tracking-widest text-[10px] mb-1 font-bold">QA Guest Access</span>
+                    <span>ID: {project.badge.id}</span>
+                    <span>PW: {project.badge.pw}</span>
+                  </div>
+                )}
                 <div className="flex items-center gap-4 mt-6">
                   {project.buttons.map((btn) => {
                     const isDisabled = btn.href === "#";
