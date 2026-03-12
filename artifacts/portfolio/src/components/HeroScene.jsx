@@ -1,19 +1,25 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Stars, Float, MeshDistortMaterial, OrbitControls } from "@react-three/drei";
+import { Stars, Float, OrbitControls } from "@react-three/drei";
 
 function WebGLScene() {
   return (
     <>
       <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
-      <ambientLight intensity={0.5} />
-      <pointLight position={[10, 10, 10]} intensity={1} />
-      <Float speed={2}>
+      <ambientLight intensity={0.3} />
+      <pointLight position={[10, 10, 10]} intensity={1.5} color="#00ffcc" />
+      <pointLight position={[-10, -10, -10]} intensity={0.5} color="#0088ff" />
+      <Float speed={3} rotationIntensity={2} floatIntensity={2}>
         <mesh>
-          <sphereGeometry args={[1, 64, 64]} />
-          <MeshDistortMaterial color="#ff4d4d" distort={0.4} speed={3} />
+          <icosahedronGeometry args={[2, 1]} />
+          <meshStandardMaterial
+            wireframe
+            color="#00ffcc"
+            emissive="#00ffcc"
+            emissiveIntensity={2}
+          />
         </mesh>
       </Float>
       <OrbitControls enableZoom={false} enablePan={false} />
@@ -26,18 +32,26 @@ function FallbackScene() {
     <div className="absolute inset-0 flex items-center justify-center">
       <div
         style={{
-          width: 200,
-          height: 200,
+          width: 220,
+          height: 220,
           borderRadius: "50%",
-          background: "radial-gradient(circle at 35% 35%, #ff6b6b, #ff4d4d, #c0392b)",
-          boxShadow: "0 0 80px 20px rgba(255, 77, 77, 0.3), 0 0 120px 40px rgba(255, 77, 77, 0.1)",
-          animation: "pulse-glow 3s ease-in-out infinite",
+          background: "radial-gradient(circle at 35% 35%, #00ffe0, #00ffcc44, transparent 70%)",
+          boxShadow:
+            "0 0 60px 10px rgba(0,255,204,0.25), 0 0 120px 30px rgba(0,255,204,0.1), inset 0 0 60px rgba(0,255,204,0.05)",
+          border: "1px solid rgba(0,255,204,0.3)",
+          animation: "cyber-pulse 3s ease-in-out infinite",
         }}
       />
       <style>{`
-        @keyframes pulse-glow {
-          0%, 100% { box-shadow: 0 0 80px 20px rgba(255,77,77,0.3), 0 0 120px 40px rgba(255,77,77,0.1); transform: scale(1); }
-          50% { box-shadow: 0 0 100px 30px rgba(255,77,77,0.5), 0 0 160px 60px rgba(255,77,77,0.2); transform: scale(1.05); }
+        @keyframes cyber-pulse {
+          0%, 100% {
+            box-shadow: 0 0 60px 10px rgba(0,255,204,0.25), 0 0 120px 30px rgba(0,255,204,0.1);
+            transform: scale(1);
+          }
+          50% {
+            box-shadow: 0 0 90px 20px rgba(0,255,204,0.45), 0 0 180px 50px rgba(0,255,204,0.2);
+            transform: scale(1.06);
+          }
         }
       `}</style>
     </div>
@@ -64,7 +78,7 @@ export default function HeroScene() {
   return (
     <Canvas
       dpr={[1, 2]}
-      camera={{ position: [0, 0, 5] }}
+      camera={{ position: [0, 0, 6] }}
       onCreated={({ gl }) => {
         if (!gl) setWebglSupported(false);
       }}
