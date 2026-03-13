@@ -95,8 +95,8 @@ function NavBar() {
 function HeroSection() {
   return (
     <section id="about" className="relative w-full min-h-screen overflow-hidden bg-[#050505]">
-      {/* 3D Scene: full background on mobile, right half on desktop */}
-      <div className="absolute inset-0 md:left-1/2 z-0">
+      {/* 3D Scene: full-screen background */}
+      <div className="absolute inset-0 z-0 w-full h-full">
         <SceneErrorBoundary>
           <Suspense fallback={null}>
             <HeroScene />

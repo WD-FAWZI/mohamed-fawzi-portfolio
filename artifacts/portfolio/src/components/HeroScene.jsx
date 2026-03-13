@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Stars, Float, OrbitControls } from "@react-three/drei";
 
-function WebGLScene() {
+function WebGLScene({ orbX }) {
   return (
     <>
       <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
@@ -12,7 +12,7 @@ function WebGLScene() {
       <pointLight position={[10, 10, 10]} intensity={1.5} color="#00ffcc" />
       <pointLight position={[-10, -10, -10]} intensity={0.5} color="#0088ff" />
       <Float speed={3} rotationIntensity={2} floatIntensity={2}>
-        <mesh>
+        <mesh position={[orbX, 0, 0]}>
           <icosahedronGeometry args={[2, 1]} />
           <meshStandardMaterial
             wireframe
@@ -60,6 +60,7 @@ function FallbackScene() {
 
 export default function HeroScene() {
   const [webglSupported, setWebglSupported] = useState(true);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
     try {
@@ -69,6 +70,12 @@ export default function HeroScene() {
     } catch {
       setWebglSupported(false);
     }
+
+    const mq = window.matchMedia("(min-width: 768px)");
+    setIsDesktop(mq.matches);
+    const handler = (e) => setIsDesktop(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
   }, []);
 
   if (!webglSupported) {
@@ -83,7 +90,7 @@ export default function HeroScene() {
         if (!gl) setWebglSupported(false);
       }}
     >
-      <WebGLScene />
+      <WebGLScene orbX={isDesktop ? 2.5 : 0} />
     </Canvas>
   );
 }
