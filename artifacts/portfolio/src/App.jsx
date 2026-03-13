@@ -94,26 +94,29 @@ function NavBar() {
 
 function HeroSection() {
   return (
-    <section id="about" className="relative w-full h-screen overflow-hidden bg-[#050505]">
-      <div className="absolute inset-0 z-0">
+    <section id="about" className="relative w-full min-h-screen overflow-hidden bg-[#050505]">
+      {/* 3D Scene: full background on mobile, right half on desktop */}
+      <div className="absolute inset-0 md:left-1/2 z-0">
         <SceneErrorBoundary>
           <Suspense fallback={null}>
             <HeroScene />
           </Suspense>
         </SceneErrorBoundary>
       </div>
-      <div className="relative z-20 flex flex-col items-center justify-center min-h-[80vh] px-4 text-center pointer-events-none select-none">
+
+      {/* Content overlay */}
+      <div className="relative z-20 min-h-screen flex items-center pointer-events-none select-none">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="w-full max-w-3xl mx-auto flex flex-col items-center justify-center text-center"
+          className="w-full md:w-1/2 px-8 md:px-16 pt-28 pb-16 md:pt-0 md:pb-0 flex flex-col items-center md:items-start text-center md:text-left"
         >
           <p className="mb-4 text-xs md:text-sm text-[#00ffcc]/70 tracking-[0.4em] uppercase font-mono">
             &lt; Neural Portfolio /&gt;
           </p>
 
-          <h1 className="text-4xl md:text-8xl font-bold text-white tracking-tighter drop-shadow-[0_0_15px_rgba(0,255,204,0.3)] glitch-effect">
+          <h1 className="text-4xl md:text-7xl font-bold text-white tracking-tighter drop-shadow-[0_0_15px_rgba(0,255,204,0.3)] glitch-effect">
             Mohamed Fawzi
           </h1>
 
@@ -121,8 +124,8 @@ function HeroSection() {
             <Typewriter />
           </p>
 
-          <div className="flex flex-col items-center gap-6 mt-20 z-20 relative pointer-events-auto">
-            <div className="flex flex-row flex-wrap justify-center gap-4">
+          <div className="flex flex-col items-center md:items-start gap-6 mt-16 z-20 relative pointer-events-auto">
+            <div className="flex flex-row flex-wrap justify-center md:justify-start gap-4">
               <a href="#projects" className="flex items-center gap-2 px-8 py-3 rounded-full bg-cyan-500/10 border border-cyan-400/50 text-cyan-300 font-mono hover:bg-cyan-400/20 hover:shadow-[0_0_20px_rgba(0,255,204,0.4)] transition-all uppercase tracking-widest text-sm pointer-events-auto">
                 <ChevronDown size={18}/> View Work
               </a>
@@ -130,7 +133,7 @@ function HeroSection() {
                 <Download size={18}/> Résumé
               </a>
             </div>
-            <div className="flex gap-6 mt-12 items-center justify-center transition-all duration-500 md:opacity-60 md:hover:opacity-100">
+            <div className="flex gap-6 mt-4 items-center justify-center md:justify-start transition-all duration-500 md:opacity-60 md:hover:opacity-100">
               <a href="https://github.com/WD-FAWZI" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400 hover:bg-cyan-400/10 hover:-translate-y-1 transition-all duration-300 pointer-events-auto">
                 <Github size={20}/>
               </a>
@@ -142,9 +145,9 @@ function HeroSection() {
               </a>
             </div>
           </div>
-
         </motion.div>
       </div>
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
