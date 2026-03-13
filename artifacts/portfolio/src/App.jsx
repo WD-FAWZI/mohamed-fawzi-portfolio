@@ -122,9 +122,26 @@ function HeroSection() {
             <Typewriter />
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 mt-8 pointer-events-auto">
-            <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-8 py-3 rounded-full bg-cyan-500/10 border border-cyan-400/50 text-cyan-300 font-mono hover:bg-cyan-400/20 hover:shadow-[0_0_20px_rgba(0,255,204,0.4)] transition-all uppercase tracking-widest opacity-50 cursor-not-allowed"><Download size={18} /> Download Résumé</a>
-            <a href="mailto:dr.mohamed.fawzi.y@gmail.com" className="flex items-center gap-2 px-8 py-3 rounded-full bg-purple-500/10 border border-purple-400/50 text-purple-300 font-mono hover:bg-purple-400/20 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all uppercase tracking-widest"><Mail size={18}/> Contact Me</a>
+          <div className="flex flex-col items-center gap-6 mt-8 z-20 relative pointer-events-auto">
+            <div className="flex flex-wrap justify-center gap-4">
+              <a href="#projects" className="flex items-center gap-2 px-8 py-3 rounded-full bg-cyan-500/10 border border-cyan-400/50 text-cyan-300 font-mono hover:bg-cyan-400/20 hover:shadow-[0_0_20px_rgba(0,255,204,0.4)] transition-all uppercase tracking-widest text-sm">
+                <ChevronDown size={18}/> View Work
+              </a>
+              <a href="#" target="_blank" className="flex items-center gap-2 px-8 py-3 rounded-full bg-white/5 border border-white/20 text-white font-mono hover:bg-white/10 hover:border-white/40 transition-all uppercase tracking-widest text-sm">
+                <Download size={18}/> Résumé
+              </a>
+            </div>
+            <div className="flex gap-4 items-center">
+              <a href="https://github.com/WD-FAWZI" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400 hover:bg-cyan-400/10 hover:-translate-y-1 transition-all duration-300">
+                <Github size={20}/>
+              </a>
+              <a href="https://www.linkedin.com/in/mohamed-fawzi-876876247" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400 hover:bg-cyan-400/10 hover:-translate-y-1 transition-all duration-300">
+                <Linkedin size={20}/>
+              </a>
+              <a href="mailto:dr.mohamed.fawzi.y@gmail.com" className="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-purple-400 hover:border-purple-400 hover:bg-purple-400/10 hover:-translate-y-1 transition-all duration-300">
+                <Mail size={20}/>
+              </a>
+            </div>
           </div>
 
         </motion.div>
