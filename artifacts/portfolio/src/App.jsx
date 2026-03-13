@@ -114,7 +114,7 @@ function HeroSection() {
             &lt; Neural Portfolio /&gt;
           </p>
 
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] bg-gradient-to-r from-cyan-400 via-purple-500 to-blue-500 bg-[length:200%_200%] animate-[gradient-xy_3s_ease-in-out_infinite] text-transparent bg-clip-text">
+          <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tighter drop-shadow-[0_0_15px_rgba(0,255,204,0.3)] glitch-effect">
             Mohamed Fawzi
           </h1>
 
@@ -127,25 +127,6 @@ function HeroSection() {
             <a href="mailto:dr.mohamed.fawzi.y@gmail.com" className="flex items-center gap-2 px-8 py-3 rounded-full bg-purple-500/10 border border-purple-400/50 text-purple-300 font-mono hover:bg-purple-400/20 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all uppercase tracking-widest"><Mail size={18}/> Contact Me</a>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.4, duration: 0.6 }}
-            className="mt-6 flex items-center justify-center gap-4 pointer-events-auto"
-          >
-            <a
-              href="#projects"
-              className="px-6 py-3 rounded-full bg-[#00ffcc] hover:bg-[#00e6b8] text-black text-sm font-semibold font-mono transition-all duration-200 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(0,255,204,0.4)]"
-            >
-              View Work
-            </a>
-            <a
-              href="#contact"
-              className="px-6 py-3 rounded-full border border-[#00ffcc]/30 text-[#00ffcc] text-sm font-mono hover:bg-[#00ffcc]/10 transition-all duration-200"
-            >
-              Get in Touch
-            </a>
-          </motion.div>
         </motion.div>
       </div>
 

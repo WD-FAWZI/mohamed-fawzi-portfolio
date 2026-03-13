@@ -5,6 +5,13 @@
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
+
+.glitch-effect { animation: cyber-glitch 4s infinite; }
+@keyframes cyber-glitch {
+  0%, 95%, 100% { text-shadow: none; transform: translate(0); }
+  96% { text-shadow: 2px 0 #00ffcc; transform: translate(-1px, 1px); }
+  98% { text-shadow: -2px 0 #a855f7; transform: translate(1px, -1px); }
+}
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
