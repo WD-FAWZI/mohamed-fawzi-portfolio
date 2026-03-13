@@ -103,12 +103,12 @@ function HeroSection() {
         </SceneErrorBoundary>
       </div>
 
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none select-none">
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none select-none pt-32 md:pt-40">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="text-center px-4"
+          className="text-center px-4 w-full max-w-3xl mx-auto flex flex-col items-center justify-center"
         >
           <p className="mb-4 text-xs md:text-sm text-[#00ffcc]/70 tracking-[0.4em] uppercase font-mono">
             &lt; Neural Portfolio /&gt;
@@ -131,7 +131,7 @@ function HeroSection() {
                 <Download size={18}/> Résumé
               </a>
             </div>
-            <div className="flex gap-4 items-center">
+            <div className="flex gap-6 items-center justify-center mt-2">
               <a href="https://github.com/WD-FAWZI" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400 hover:bg-cyan-400/10 hover:-translate-y-1 transition-all duration-300">
                 <Github size={20}/>
               </a>
