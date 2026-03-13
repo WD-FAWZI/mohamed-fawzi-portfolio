@@ -1,6 +1,6 @@
 import { Suspense, lazy, Component, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code2, Cpu, Globe, Download, Youtube } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code2, Brain, Server, Download, Youtube } from "lucide-react";
 
 const HeroScene = lazy(() => import("./components/HeroScene"));
 
@@ -57,9 +57,9 @@ function Typewriter() {
 
 
 const skills = [
-  { icon: <Code2 size={20} />, label: "Frontend", items: ["React", "Next.js", "Three.js", "Framer Motion"] },
-  { icon: <Cpu size={20} />, label: "AI & ML", items: ["PyTorch", "LangChain", "OpenAI", "HuggingFace"] },
-  { icon: <Globe size={20} />, label: "Backend", items: ["Node.js", "Rust", "PostgreSQL", "Redis"] },
+  { icon: <Code2 size={20} />, label: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Three.js"] },
+  { icon: <Brain size={20} />, label: "AI & Architecture", items: ["LLM Orchestration", "Local LLM Deployment", "Agentic Workflows (Vapi)", "Prompt Caching"] },
+  { icon: <Server size={20} />, label: "Backend & Infra", items: ["FastAPI", "Node.js", "Supabase", "Vercel"] },
 ];
 
 function NavBar() {
