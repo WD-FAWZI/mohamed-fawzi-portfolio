@@ -122,7 +122,7 @@ function HeroSection() {
           </p>
 
           <div className="flex flex-col items-center gap-6 mt-8 z-20 relative pointer-events-auto">
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-4 mt-[10px] mb-[10px]">
               <a href="#projects" className="flex items-center gap-2 px-8 py-3 rounded-full bg-cyan-500/10 border border-cyan-400/50 text-cyan-300 font-mono hover:bg-cyan-400/20 hover:shadow-[0_0_20px_rgba(0,255,204,0.4)] transition-all uppercase tracking-widest text-sm">
                 <ChevronDown size={18}/> View Work
               </a>
