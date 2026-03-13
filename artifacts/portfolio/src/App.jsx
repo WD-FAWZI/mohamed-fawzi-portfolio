@@ -102,18 +102,18 @@ function HeroSection() {
           </Suspense>
         </SceneErrorBoundary>
       </div>
-      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none select-none pt-32 md:pt-40">
+      <div className="relative z-20 flex flex-col items-center justify-center min-h-[80vh] px-4 text-center pointer-events-none select-none">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="text-center px-4 w-full max-w-3xl mx-auto flex flex-col items-center justify-center"
+          className="w-full max-w-3xl mx-auto flex flex-col items-center justify-center text-center"
         >
           <p className="mb-4 text-xs md:text-sm text-[#00ffcc]/70 tracking-[0.4em] uppercase font-mono">
             &lt; Neural Portfolio /&gt;
           </p>
 
-          <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tighter drop-shadow-[0_0_15px_rgba(0,255,204,0.3)] glitch-effect">
+          <h1 className="text-4xl md:text-8xl font-bold text-white tracking-tighter drop-shadow-[0_0_15px_rgba(0,255,204,0.3)] glitch-effect">
             Mohamed Fawzi
           </h1>
 
@@ -122,22 +122,22 @@ function HeroSection() {
           </p>
 
           <div className="flex flex-col items-center gap-6 mt-8 z-20 relative pointer-events-auto">
-            <div className="flex flex-wrap justify-center gap-4 mt-[10px] mb-[10px]">
-              <a href="#projects" className="flex items-center gap-2 px-8 py-3 rounded-full bg-cyan-500/10 border border-cyan-400/50 text-cyan-300 font-mono hover:bg-cyan-400/20 hover:shadow-[0_0_20px_rgba(0,255,204,0.4)] transition-all uppercase tracking-widest text-sm">
+            <div className="flex flex-row flex-wrap justify-center gap-4">
+              <a href="#projects" className="flex items-center gap-2 px-8 py-3 rounded-full bg-cyan-500/10 border border-cyan-400/50 text-cyan-300 font-mono hover:bg-cyan-400/20 hover:shadow-[0_0_20px_rgba(0,255,204,0.4)] transition-all uppercase tracking-widest text-sm pointer-events-auto">
                 <ChevronDown size={18}/> View Work
               </a>
-              <a href="#" target="_blank" className="flex items-center gap-2 px-8 py-3 rounded-full bg-white/5 border border-white/20 text-white font-mono hover:bg-white/10 hover:border-white/40 transition-all uppercase tracking-widest text-sm">
+              <a href="#" target="_blank" className="flex items-center gap-2 px-8 py-3 rounded-full bg-white/5 border border-white/20 text-white font-mono hover:bg-white/10 hover:border-white/40 transition-all uppercase tracking-widest text-sm pointer-events-auto">
                 <Download size={18}/> Résumé
               </a>
             </div>
-            <div className="flex gap-6 items-center justify-center mt-[30px]">
-              <a href="https://github.com/WD-FAWZI" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center hover:text-cyan-400 hover:border-cyan-400 hover:bg-cyan-400/10 hover:-translate-y-1 transition-all duration-300 border-t-[#00baf3] border-r-[#00baf3] border-b-[#00baf3] border-l-[#00baf3] text-[#00baf3]">
+            <div className="flex gap-6 mt-12 items-center justify-center transition-all duration-500 md:opacity-60 md:hover:opacity-100">
+              <a href="https://github.com/WD-FAWZI" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400 hover:bg-cyan-400/10 hover:-translate-y-1 transition-all duration-300 pointer-events-auto">
                 <Github size={20}/>
               </a>
-              <a href="https://www.linkedin.com/in/mohamed-fawzi-876876247" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center hover:text-cyan-400 hover:border-cyan-400 hover:bg-cyan-400/10 hover:-translate-y-1 transition-all duration-300 border-t-[#0082f3] border-r-[#0082f3] border-b-[#0082f3] border-l-[#0082f3] text-[#0082f3]">
+              <a href="https://www.linkedin.com/in/mohamed-fawzi-876876247" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400 hover:bg-cyan-400/10 hover:-translate-y-1 transition-all duration-300 pointer-events-auto">
                 <Linkedin size={20}/>
               </a>
-              <a href="mailto:dr.mohamed.fawzi.y@gmail.com" className="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center hover:text-purple-400 hover:border-purple-400 hover:bg-purple-400/10 hover:-translate-y-1 transition-all duration-300 text-[#c37aff] border-t-[#c37aff] border-r-[#c37aff] border-b-[#c37aff] border-l-[#c37aff]">
+              <a href="mailto:dr.mohamed.fawzi.y@gmail.com" className="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-purple-400 hover:border-purple-400 hover:bg-purple-400/10 hover:-translate-y-1 transition-all duration-300 pointer-events-auto">
                 <Mail size={20}/>
               </a>
             </div>
