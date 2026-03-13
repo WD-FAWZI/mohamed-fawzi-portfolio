@@ -130,7 +130,7 @@ function HeroSection() {
                 <Download size={18}/> Résumé
               </a>
             </div>
-            <div className="flex gap-6 items-center justify-center mt-2">
+            <div className="flex gap-6 items-center justify-center mt-[30px]">
               <a href="https://github.com/WD-FAWZI" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center hover:text-cyan-400 hover:border-cyan-400 hover:bg-cyan-400/10 hover:-translate-y-1 transition-all duration-300 border-t-[#00baf3] border-r-[#00baf3] border-b-[#00baf3] border-l-[#00baf3] text-[#00baf3]">
                 <Github size={20}/>
               </a>
