@@ -102,7 +102,6 @@ function HeroSection() {
           </Suspense>
         </SceneErrorBoundary>
       </div>
-
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none select-none pt-32 md:pt-40">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -135,7 +134,7 @@ function HeroSection() {
               <a href="https://github.com/WD-FAWZI" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400 hover:bg-cyan-400/10 hover:-translate-y-1 transition-all duration-300">
                 <Github size={20}/>
               </a>
-              <a href="https://www.linkedin.com/in/mohamed-fawzi-876876247" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400 hover:bg-cyan-400/10 hover:-translate-y-1 transition-all duration-300">
+              <a href="https://www.linkedin.com/in/mohamed-fawzi-876876247" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center hover:text-cyan-400 hover:border-cyan-400 hover:bg-cyan-400/10 hover:-translate-y-1 transition-all duration-300 border-t-[#0082f3] border-r-[#0082f3] border-b-[#0082f3] border-l-[#0082f3] text-[#0082f3]">
                 <Linkedin size={20}/>
               </a>
               <a href="mailto:dr.mohamed.fawzi.y@gmail.com" className="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-purple-400 hover:border-purple-400 hover:bg-purple-400/10 hover:-translate-y-1 transition-all duration-300">
@@ -146,7 +145,6 @@ function HeroSection() {
 
         </motion.div>
       </div>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
