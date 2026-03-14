@@ -70,7 +70,7 @@ function ShootingStar() {
 
   return (
     <mesh ref={ref} visible={false} rotation={[0, 0, 2.16]}>
-      <cylinderGeometry args={[0.01, 0.01, 3, 8]} />
+      <cylinderGeometry args={[0.01, 0.01, 3, 4]} />
       <meshBasicMaterial color="#ffffff" transparent opacity={0.8} />
     </mesh>
   );

@@ -133,16 +133,25 @@ function HeroSection() {
                 <Download size={18}/> Résumé
               </a>
             </div>
-            <div className="flex gap-6 mt-4 items-center justify-center md:justify-start transition-all duration-500 md:opacity-60 md:hover:opacity-100">
-              <a href="https://github.com/WD-FAWZI" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400 hover:bg-cyan-400/10 hover:-translate-y-1 transition-all duration-300 pointer-events-auto">
-                <Github size={20}/>
-              </a>
-              <a href="https://www.linkedin.com/in/mohamed-fawzi-876876247" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400 hover:bg-cyan-400/10 hover:-translate-y-1 transition-all duration-300 pointer-events-auto">
-                <Linkedin size={20}/>
-              </a>
-              <a href="mailto:dr.mohamed.fawzi.y@gmail.com" className="w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:text-purple-400 hover:border-purple-400 hover:bg-purple-400/10 hover:-translate-y-1 transition-all duration-300 pointer-events-auto">
-                <Mail size={20}/>
-              </a>
+            <div className="flex gap-6 mt-4 items-center justify-center md:justify-start">
+              {[
+                { href: "https://github.com/WD-FAWZI", icon: <Github size={20}/>, rel: "noopener noreferrer", hoverClass: "md:hover:text-cyan-400 md:hover:border-cyan-400 md:hover:bg-cyan-400/10" },
+                { href: "https://www.linkedin.com/in/mohamed-fawzi-876876247", icon: <Linkedin size={20}/>, rel: "noopener noreferrer", hoverClass: "md:hover:text-cyan-400 md:hover:border-cyan-400 md:hover:bg-cyan-400/10" },
+                { href: "mailto:dr.mohamed.fawzi.y@gmail.com", icon: <Mail size={20}/>, rel: undefined, hoverClass: "md:hover:text-purple-400 md:hover:border-purple-400 md:hover:bg-purple-400/10" },
+              ].map(({ href, icon, rel, hoverClass }, i) => (
+                <motion.a
+                  key={href}
+                  href={href}
+                  target={rel ? "_blank" : undefined}
+                  rel={rel}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.2 + i * 0.12, duration: 0.4 }}
+                  className={`w-12 h-12 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 ${hoverClass} md:hover:-translate-y-1 transition-all duration-300 pointer-events-auto`}
+                >
+                  {icon}
+                </motion.a>
+              ))}
             </div>
           </div>
         </motion.div>
@@ -202,7 +211,7 @@ function FeaturedProjectsSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
@@ -220,9 +229,9 @@ function FeaturedProjectsSection() {
               key={project.title}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.12 }}
-              className="backdrop-blur-lg bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors group relative overflow-hidden"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: i * 0.15 }}
+              className="backdrop-blur-lg bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-cyan-500/50 md:hover:-translate-y-1 md:hover:shadow-[0_0_30px_rgba(0,255,204,0.12)] transition-all duration-300 group relative overflow-hidden"
             >
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"
                 style={{ background: "radial-gradient(circle at 50% 0%, rgba(0,255,204,0.07) 0%, transparent 70%)" }}
@@ -278,7 +287,7 @@ function SkillsSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
           className="mb-14"
         >
@@ -290,11 +299,11 @@ function SkillsSection() {
           {skills.map((skill, i) => (
             <motion.div
               key={skill.label}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="p-6 rounded-2xl border border-white/10 bg-white/[0.03] hover:border-[#00ffcc]/20 transition-colors duration-300"
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.45, delay: i * 0.12 }}
+              className="p-6 rounded-2xl border border-white/10 bg-white/[0.03] md:hover:border-[#00ffcc]/30 md:hover:-translate-y-1 transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-5">
                 <span className="text-[#00ffcc]">{skill.icon}</span>
