@@ -2,43 +2,31 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Stars } from "@react-three/drei";
-import * as THREE from "three";
+import { Stars, OrbitControls } from "@react-three/drei";
 
 function Orb({ isDesktop }) {
   const ref = useRef();
-  const baseY = 0;
 
   useFrame((state) => {
     if (!ref.current) return;
-    ref.current.rotation.y = THREE.MathUtils.lerp(
-      ref.current.rotation.y,
-      state.pointer.x * 0.5,
-      0.05
-    );
-    ref.current.rotation.x = THREE.MathUtils.lerp(
-      ref.current.rotation.x,
-      state.pointer.y * -0.3,
-      0.05
-    );
-    ref.current.position.y =
-      baseY + Math.sin(state.clock.elapsedTime) * 0.1;
+    ref.current.position.y = Math.sin(state.clock.elapsedTime) * 0.1;
   });
 
   return (
-    <mesh
-      ref={ref}
-      position={[isDesktop ? 2.5 : 0, baseY, 0]}
-      scale={isDesktop ? [1.2, 1.2, 1.2] : [1, 1, 1]}
-    >
-      <icosahedronGeometry args={[2, 1]} />
-      <meshStandardMaterial
-        wireframe
-        color="#00ffcc"
-        emissive="#00ffcc"
-        emissiveIntensity={2}
-      />
-    </mesh>
+    <group position={[isDesktop ? 2.5 : 0, 0, 0]}>
+      <mesh
+        ref={ref}
+        scale={isDesktop ? [1.2, 1.2, 1.2] : [1, 1, 1]}
+      >
+        <icosahedronGeometry args={[2, 1]} />
+        <meshStandardMaterial
+          wireframe
+          color="#00ffcc"
+          emissive="#00ffcc"
+          emissiveIntensity={2}
+        />
+      </mesh>
+    </group>
   );
 }
 
@@ -50,6 +38,13 @@ function WebGLScene({ isDesktop }) {
       <pointLight position={[10, 10, 10]} intensity={1.5} color="#00ffcc" />
       <pointLight position={[-10, -10, -10]} intensity={0.5} color="#0088ff" />
       <Orb isDesktop={isDesktop} />
+      <OrbitControls
+        enableZoom={false}
+        enablePan={false}
+        enableRotate={true}
+        autoRotate={true}
+        autoRotateSpeed={0.8}
+      />
     </>
   );
 }
