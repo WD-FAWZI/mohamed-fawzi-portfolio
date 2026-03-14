@@ -1,28 +1,55 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { Stars, Float, OrbitControls } from "@react-three/drei";
+import { useEffect, useRef, useState } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Stars } from "@react-three/drei";
+import * as THREE from "three";
 
-function WebGLScene({ orbX }) {
+function Orb({ isDesktop }) {
+  const ref = useRef();
+  const baseY = 0;
+
+  useFrame((state) => {
+    if (!ref.current) return;
+    ref.current.rotation.y = THREE.MathUtils.lerp(
+      ref.current.rotation.y,
+      state.pointer.x * 0.5,
+      0.05
+    );
+    ref.current.rotation.x = THREE.MathUtils.lerp(
+      ref.current.rotation.x,
+      state.pointer.y * -0.3,
+      0.05
+    );
+    ref.current.position.y =
+      baseY + Math.sin(state.clock.elapsedTime) * 0.1;
+  });
+
+  return (
+    <mesh
+      ref={ref}
+      position={[isDesktop ? 2.5 : 0, baseY, 0]}
+      scale={isDesktop ? [1.2, 1.2, 1.2] : [1, 1, 1]}
+    >
+      <icosahedronGeometry args={[2, 1]} />
+      <meshStandardMaterial
+        wireframe
+        color="#00ffcc"
+        emissive="#00ffcc"
+        emissiveIntensity={2}
+      />
+    </mesh>
+  );
+}
+
+function WebGLScene({ isDesktop }) {
   return (
     <>
       <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
       <ambientLight intensity={0.3} />
       <pointLight position={[10, 10, 10]} intensity={1.5} color="#00ffcc" />
       <pointLight position={[-10, -10, -10]} intensity={0.5} color="#0088ff" />
-      <Float speed={3} rotationIntensity={2} floatIntensity={2}>
-        <mesh position={[orbX, 0, 0]}>
-          <icosahedronGeometry args={[2, 1]} />
-          <meshStandardMaterial
-            wireframe
-            color="#00ffcc"
-            emissive="#00ffcc"
-            emissiveIntensity={2}
-          />
-        </mesh>
-      </Float>
-      <OrbitControls enableZoom={false} enablePan={false} />
+      <Orb isDesktop={isDesktop} />
     </>
   );
 }
@@ -90,7 +117,7 @@ export default function HeroScene() {
         if (!gl) setWebglSupported(false);
       }}
     >
-      <WebGLScene orbX={isDesktop ? 2.5 : 0} />
+      <WebGLScene isDesktop={isDesktop} />
     </Canvas>
   );
 }
