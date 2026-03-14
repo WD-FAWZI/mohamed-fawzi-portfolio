@@ -33,17 +33,18 @@ function Orb({ isDesktop }) {
 function WebGLScene({ isDesktop }) {
   return (
     <>
-      <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+      <Stars radius={200} depth={60} count={6000} factor={5} saturation={0} fade speed={1} />
       <ambientLight intensity={0.3} />
       <pointLight position={[10, 10, 10]} intensity={1.5} color="#00ffcc" />
       <pointLight position={[-10, -10, -10]} intensity={0.5} color="#0088ff" />
       <Orb isDesktop={isDesktop} />
       <OrbitControls
+        target={[isDesktop ? 2.5 : 0, 0, 0]}
         enableZoom={false}
         enablePan={false}
         enableRotate={true}
         autoRotate={true}
-        autoRotateSpeed={0.8}
+        autoRotateSpeed={1.0}
       />
     </>
   );
@@ -93,11 +94,10 @@ export default function HeroScene() {
       setWebglSupported(false);
     }
 
-    const mq = window.matchMedia("(min-width: 768px)");
-    setIsDesktop(mq.matches);
-    const handler = (e) => setIsDesktop(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
+    const update = () => setIsDesktop(window.innerWidth > 768);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
   }, []);
 
   if (!webglSupported) {
