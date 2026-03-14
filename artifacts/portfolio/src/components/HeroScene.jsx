@@ -13,7 +13,7 @@ function Orb({ isDesktop }) {
   });
 
   return (
-    <group position={[isDesktop ? 2.5 : 0, 0, 0]}>
+    <group position={[isDesktop ? 3.8 : 0, 0, 0]}>
       <mesh
         ref={ref}
         scale={isDesktop ? [1.2, 1.2, 1.2] : [1, 1, 1]}
@@ -30,16 +30,63 @@ function Orb({ isDesktop }) {
   );
 }
 
+const START = [15, 10, -10];
+const END = [-15, -10, -10];
+const TOTAL_DIST = Math.sqrt(
+  (END[0] - START[0]) ** 2 + (END[1] - START[1]) ** 2 + (END[2] - START[2]) ** 2
+);
+
+function ShootingStar() {
+  const ref = useRef();
+  const s = useRef({ active: false, progress: 0, timer: 0 });
+
+  useFrame((_, delta) => {
+    if (!ref.current) return;
+    s.current.timer += delta;
+
+    if (!s.current.active && s.current.timer >= 8) {
+      s.current.active = true;
+      s.current.progress = 0;
+      s.current.timer = 0;
+    }
+
+    if (s.current.active) {
+      s.current.progress += delta * 40;
+      const t = Math.min(s.current.progress / TOTAL_DIST, 1);
+      ref.current.position.set(
+        START[0] + (END[0] - START[0]) * t,
+        START[1] + (END[1] - START[1]) * t,
+        START[2] + (END[2] - START[2]) * t
+      );
+      ref.current.visible = true;
+      if (t >= 1) {
+        s.current.active = false;
+        ref.current.visible = false;
+      }
+    } else {
+      ref.current.visible = false;
+    }
+  });
+
+  return (
+    <mesh ref={ref} visible={false} rotation={[0, 0, 2.16]}>
+      <cylinderGeometry args={[0.01, 0.01, 3, 8]} />
+      <meshBasicMaterial color="#ffffff" transparent opacity={0.8} />
+    </mesh>
+  );
+}
+
 function WebGLScene({ isDesktop }) {
   return (
     <>
       <Stars radius={200} depth={60} count={6000} factor={5} saturation={0} fade speed={1} />
+      <ShootingStar />
       <ambientLight intensity={0.3} />
       <pointLight position={[10, 10, 10]} intensity={1.5} color="#00ffcc" />
       <pointLight position={[-10, -10, -10]} intensity={0.5} color="#0088ff" />
       <Orb isDesktop={isDesktop} />
       <OrbitControls
-        target={[isDesktop ? 2.5 : 0, 0, 0]}
+        target={[isDesktop ? 3.8 : 0, 0, 0]}
         enableZoom={false}
         enablePan={false}
         enableRotate={true}
