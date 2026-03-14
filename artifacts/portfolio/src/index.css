@@ -1,17 +1,9 @@
 @import "tailwindcss";
+@source "./";
+/* 👈 ده الرادار اللي هيخلي Tailwind يشوف ملفاتك */
+
+/* تم إعادة تفعيل البلوجنز */
 @import "tw-animate-css";
-
-@keyframes gradient-xy {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-.glitch-effect { animation: cyber-glitch 4s infinite; }
-@keyframes cyber-glitch {
-  0%, 95%, 100% { text-shadow: none; transform: translate(0); }
-  96% { text-shadow: 2px 0 #00ffcc; transform: translate(-1px, 1px); }
-  98% { text-shadow: -2px 0 #a855f7; transform: translate(1px, -1px); }
-}
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
@@ -79,11 +71,11 @@
 }
 
 :root {
-  --button-outline: rgba(255,255,255, .10);
-  --badge-outline: rgba(255,255,255, .05);
+  --button-outline: rgba(255, 255, 255, .10);
+  --badge-outline: rgba(255, 255, 255, .05);
   --opaque-button-border-intensity: 9;
-  --elevate-1: rgba(255,255,255, .04);
-  --elevate-2: rgba(255,255,255, .09);
+  --elevate-1: rgba(255, 255, 255, .04);
+  --elevate-2: rgba(255, 255, 255, .09);
 
   --background: 0 0% 2%;
   --foreground: 0 0% 96%;
@@ -124,14 +116,14 @@
   --app-font-serif: Georgia, serif;
   --app-font-mono: Menlo, monospace;
   --radius: .5rem;
-  --shadow-2xs: 0px 2px 0px 0px rgba(0,0,0,0.3);
-  --shadow-xs: 0px 2px 4px 0px rgba(0,0,0,0.3);
-  --shadow-sm: 0px 2px 4px 0px rgba(0,0,0,0.3), 0px 1px 2px -1px rgba(0,0,0,0.3);
-  --shadow: 0px 4px 6px 0px rgba(0,0,0,0.4), 0px 2px 4px -1px rgba(0,0,0,0.3);
-  --shadow-md: 0px 4px 8px 0px rgba(0,0,0,0.4), 0px 2px 4px -1px rgba(0,0,0,0.3);
-  --shadow-lg: 0px 8px 16px 0px rgba(0,0,0,0.5), 0px 4px 6px -1px rgba(0,0,0,0.4);
-  --shadow-xl: 0px 12px 24px 0px rgba(0,0,0,0.6), 0px 8px 10px -1px rgba(0,0,0,0.5);
-  --shadow-2xl: 0px 16px 32px 0px rgba(0,0,0,0.7);
+  --shadow-2xs: 0px 2px 0px 0px rgba(0, 0, 0, 0.3);
+  --shadow-xs: 0px 2px 4px 0px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0px 2px 4px 0px rgba(0, 0, 0, 0.3), 0px 1px 2px -1px rgba(0, 0, 0, 0.3);
+  --shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.4), 0px 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0px 4px 8px 0px rgba(0, 0, 0, 0.4), 0px 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0px 8px 16px 0px rgba(0, 0, 0, 0.5), 0px 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0px 12px 24px 0px rgba(0, 0, 0, 0.6), 0px 8px 10px -1px rgba(0, 0, 0, 0.5);
+  --shadow-2xl: 0px 16px 32px 0px rgba(0, 0, 0, 0.7);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 
@@ -159,6 +151,42 @@
   }
 }
 
+@keyframes gradient-xy {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.glitch-effect {
+  animation: cyber-glitch 4s infinite;
+}
+
+@keyframes cyber-glitch {
+
+  0%,
+  95%,
+  100% {
+    text-shadow: none;
+    transform: translate(0);
+  }
+
+  96% {
+    text-shadow: 2px 0 #00ffcc;
+    transform: translate(-1px, 1px);
+  }
+
+  98% {
+    text-shadow: -2px 0 #a855f7;
+    transform: translate(1px, -1px);
+  }
+}
+
 @keyframes glitch {
   0% {
     text-shadow:
@@ -166,36 +194,42 @@
       -0.04em 0 0 rgba(123, 97, 255, 0.75);
     transform: translate(0);
   }
+
   2% {
     text-shadow:
       0.04em 0 0 rgba(0, 255, 204, 0.75),
       -0.04em 0 0 rgba(123, 97, 255, 0.75);
     transform: translate(-2px, 1px);
   }
+
   4% {
     text-shadow:
       -0.04em 0 0 rgba(0, 255, 204, 0.75),
       0.04em 0 0 rgba(123, 97, 255, 0.75);
     transform: translate(2px, -1px);
   }
+
   6% {
     text-shadow:
       0.04em 0 0 rgba(0, 255, 204, 0.75),
       -0.04em 0 0 rgba(123, 97, 255, 0.75);
     transform: translate(0);
   }
+
   96% {
     text-shadow:
       0.04em 0 0 rgba(0, 255, 204, 0),
       -0.04em 0 0 rgba(123, 97, 255, 0);
     transform: translate(0);
   }
+
   98% {
     text-shadow:
       -0.05em 0 0 rgba(0, 255, 204, 0.6),
       0.05em 0 0 rgba(123, 97, 255, 0.6);
     transform: translate(3px, 0);
   }
+
   100% {
     text-shadow:
       0.04em 0 0 rgba(0, 255, 204, 0),
