@@ -130,7 +130,7 @@ function HeroSection() {
               <a href="#projects" className="flex items-center gap-2 px-8 py-3 rounded-full bg-cyan-500/10 border border-cyan-400/50 text-cyan-300 font-mono hover:bg-cyan-400/20 hover:shadow-[0_0_20px_rgba(0,255,204,0.4)] transition-all uppercase tracking-widest text-sm pointer-events-auto">
                 <ChevronDown size={18}/> View Work
               </a>
-              <a href="#" target="_blank" className="flex items-center gap-2 px-8 py-3 rounded-full bg-white/5 border border-white/20 text-white font-mono hover:bg-white/10 hover:border-white/40 transition-all uppercase tracking-widest text-sm pointer-events-auto">
+              <a href="/Mohamed_Fawzi_AI_Solutions_Architect_MBBS.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-8 py-3 rounded-full bg-white/5 border border-white/20 text-white font-mono hover:bg-white/10 hover:border-white/40 transition-all uppercase tracking-widest text-sm pointer-events-auto">
                 <Download size={18}/> Résumé
               </a>
             </div>
