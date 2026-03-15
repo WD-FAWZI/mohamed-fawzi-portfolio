@@ -172,9 +172,9 @@ function HeroSection() {
 
 const projectCards = [
   {
-    title: "Etme'nan",
+    title: "Itminan",
     desc: "AI Health-tech & Diabetes Monitoring Platform.",
-    badge: { id: "dr.demo@itmenan.com", pw: "demo123" },
+    badge: { id: "dr.demo@itminan.com", pw: "demo123" },
     buttons: [
       { label: "Live Demo", icon: <ExternalLink size={15} />, href: "https://itminan.vercel.app" },
       { label: "Source", icon: <Github size={15} />, href: "#" },
