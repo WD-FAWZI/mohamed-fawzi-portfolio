@@ -79,7 +79,7 @@ function ShootingStar() {
 function WebGLScene({ isDesktop }) {
   return (
     <>
-      <Stars radius={200} depth={60} count={6000} factor={5} saturation={0} fade speed={1} />
+      <Stars radius={200} depth={60} count={isDesktop ? 6000 : 8000} factor={isDesktop ? 5 : 7} saturation={0} fade speed={1} />
       <ShootingStar />
       <ambientLight intensity={0.3} />
       <pointLight position={[10, 10, 10]} intensity={1.5} color="#00ffcc" />

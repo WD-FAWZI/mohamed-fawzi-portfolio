@@ -85,7 +85,7 @@ function NavBar() {
       </div>
       <a
         href="mailto:hello@mfawzi.dev"
-        className="text-sm px-4 py-2 rounded-full border border-[#00ffcc]/30 text-[#00ffcc] hover:bg-[#00ffcc]/10 transition-colors duration-200 font-mono"
+        className="text-sm px-4 py-4 rounded-full border border-[#00ffcc]/30 text-[#00ffcc] hover:bg-[#00ffcc]/10 transition-colors duration-200 font-mono"
       >
         Hire Me
       </a>
@@ -95,7 +95,7 @@ function NavBar() {
 
 function HeroSection() {
   return (
-    <section id="about" className="relative w-full min-h-screen overflow-hidden bg-[#050505]">
+    <section id="about" className="relative w-full min-h-[100dvh] overflow-hidden bg-[#050505]">
       {/* 3D Scene: full-screen background */}
       <div className="absolute inset-0 z-0 w-full h-full">
         <SceneErrorBoundary>
@@ -106,7 +106,7 @@ function HeroSection() {
       </div>
 
       {/* Content overlay */}
-      <div className="relative z-20 min-h-screen flex items-center pointer-events-none select-none">
+      <div className="relative z-20 min-h-[100dvh] flex items-center pointer-events-none select-none">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -127,10 +127,10 @@ function HeroSection() {
 
           <div className="flex flex-col items-center md:items-start gap-6 mt-16 z-20 relative pointer-events-auto">
             <div className="flex flex-row flex-wrap justify-center md:justify-start gap-4">
-              <a href="#projects" className="flex items-center gap-2 px-8 py-3 rounded-full bg-cyan-500/10 border border-cyan-400/50 text-cyan-300 font-mono hover:bg-cyan-400/20 hover:shadow-[0_0_20px_rgba(0,255,204,0.4)] transition-all uppercase tracking-widest text-sm pointer-events-auto">
-                <ChevronDown size={18}/> View Work
+              <a href="#projects" className="flex items-center gap-2 px-8 py-4 rounded-full bg-cyan-500/10 border border-cyan-400/50 text-cyan-300 font-mono hover:bg-cyan-400/20 hover:shadow-[0_0_20px_rgba(0,255,204,0.4)] transition-all uppercase tracking-widest text-sm pointer-events-auto">
+                <abbr title="View Work" className="no-underline"><ChevronDown size={18}/></abbr> View Work
               </a>
-              <a href="/Mohamed_Fawzi_AI_Solutions_Architect_MBBS.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-8 py-3 rounded-full bg-white/5 border border-white/20 text-white font-mono hover:bg-white/10 hover:border-white/40 transition-all uppercase tracking-widest text-sm pointer-events-auto">
+              <a href="/Mohamed_Fawzi_AI_Solutions_Architect_MBBS.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-8 py-4 rounded-full bg-white/5 border border-white/20 text-white font-mono hover:bg-white/10 hover:border-white/40 transition-all uppercase tracking-widest text-sm pointer-events-auto">
                 <Download size={18}/> Résumé
               </a>
             </div>
